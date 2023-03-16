@@ -3,8 +3,10 @@ import dataVar from './data.js'
 
 dataVar.forEach((item) => {
     console.log(item)
+    if(item){
+        fs.writeFile('./createdText' + '.text' , item?.id + '-'+ item?.title + '\n' + item?.description + '\n \n',{flag: 'a+'},(err) => {
+            if(err) console.error(err)
+        })
 
-    fs.writeFile('./createdText' + '.text' , item.id + '-'+ item.title + '\n'+ + '\n' + item.description + '\n',{flag: 'a+'},(err) => {
-        if(err) console.error(err)
-    })
+    }
 })
